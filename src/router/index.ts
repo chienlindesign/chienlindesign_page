@@ -16,6 +16,7 @@ const routes: Array<RouteRecordRaw> = [
         redirect: '/tabs/tab1'
       },
       {
+        name:'Tab1Page',
         path: 'tab1',
         component: () => import('@/views/Tab1Page.vue')
       },
@@ -26,6 +27,15 @@ const routes: Array<RouteRecordRaw> = [
       {
         path: 'tab3',
         component: () => import('@/views/Tab3Page.vue')
+      },
+      {
+        path: '/login',
+        name: 'LoginView',
+        component: () => import("@/views/LoginView.vue")
+      },
+      {
+        path: "/:pathMatch(.*)*",
+        redirect: { name: 'LoginView' }
       }
     ]
   }
