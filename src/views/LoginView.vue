@@ -12,7 +12,7 @@
                     <ion-input type="password" v-model="form.password"></ion-input>
                     </ion-item>
                     <br>
-                    <ion-button type="primary" @click="submit"> 登入</ion-button>
+                    <ion-button type="primary" @click="submit" expand="block"> 登入</ion-button>
             </ion-card-content>
         </ion-card>
     </ion-content>
@@ -46,10 +46,10 @@ export default defineComponent({
         });
         const submit = () => {
             //if(formRef.value){
-                axios.post('http://tc-hejulove254-1.kddns.info:33366/home/public/api/testAPI',qs.stringify({key:form.password}))
+                axios.post('http://tc-hejulove254-1.kddns.info:33366/home/public/api/getPerson',qs.stringify({key:form.password}))
                 .then((response: any) => {
                     // handle success
-                    if (response.data=='correct'){
+                    if (response.data.msg=='correct'){
                     form.isLogin = true;
                     store.dispatch('EDIT_USER_INFO', form);
                     router.push({

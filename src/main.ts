@@ -23,9 +23,11 @@ import '@ionic/vue/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
-import store from './store'
+import vstore from './store';
 
-const app = createApp(App).use(store)
+
+
+const app = createApp(App).use(vstore)
   .use(IonicVue)
   .use(router);
 
